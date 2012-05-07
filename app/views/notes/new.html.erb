@@ -1,0 +1,15 @@
+<h1>New note</h1>
+
+<% form_for([@noteable, Note.new]) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :text %><br />
+    <%= f.text_area :text %>
+  </p>
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', polymorphic_url([@noteable, Note.new]) %>

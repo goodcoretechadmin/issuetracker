@@ -1,0 +1,25 @@
+<h1>Listing notes</h1>
+
+<table>
+  <tr>
+    <th width="300px">Text</th>
+  </tr>
+
+<% @notes.each do |note| %>
+  <tr>
+    <td><%=h note.text %></td>
+    <td><%= link_to 'Destroy', @note, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<% if @noteable.instance_of? Client %>
+<%= link_to 'Add Note', new_client_note_path %>
+<% elsif @noteable.instance_of? Issue %>
+<%= link_to 'Add Note', new_issue_note_path %>
+<% elsif @noteable.instance_of? Doctor %>
+<%= link_to 'Add Note', new_doctor_note_path %>
+<% end %>
+<%= link_to 'Back', @noteable %>

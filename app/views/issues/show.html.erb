@@ -1,0 +1,39 @@
+<p>
+  <b>Client:</b>
+  <%=h @issue.client.name %>
+</p>
+
+<p>
+  <b>Type:</b>
+  <%=h @issue.issue_type %>
+</p>
+
+<p>
+  <b>Doctor (if any):</b>
+  <%=h @issue.doctor.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @issue.description %>
+</p>
+
+<p>
+  <b>Substantiated:</b>
+  <%=h @issue.substantiated %>
+</p>
+
+<p>
+  <b>Status:</b>
+  <%=h @issue.status %>
+</p>
+
+<p>
+  <b>Resolution:</b>
+  <%=h @issue.resolution %>
+</p>
+
+
+<%= link_to 'Edit', edit_issue_path(@issue) %> |
+<%= link_to 'View Notes', polymorphic_url([@issue, Note.new]) %> |
+<%= link_to 'Back', issues_path %>

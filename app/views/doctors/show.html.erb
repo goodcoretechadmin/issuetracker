@@ -1,0 +1,19 @@
+<p>
+  <b>First name:</b>
+  <%=h @doctor.first_name %>
+</p>
+
+<p>
+  <b>Last name:</b>
+  <%=h @doctor.last_name %>
+</p>
+
+<p>
+  <b>Address:</b>
+  <%=h @doctor.address %>
+</p>
+
+
+<%= link_to 'Edit', edit_doctor_path(@doctor) %> |
+<%= link_to 'Notes', polymorphic_url([@doctor, Note.new]) %> |
+<%= link_to 'Back', doctors_path %>

@@ -1,0 +1,19 @@
+<% form_for(@doctor) do |f| %>
+    <%= f.error_messages %>
+
+    <p>
+      <%= f.label :first_name %><br />
+      <%= f.text_field :first_name %>
+    </p>
+    <p>
+      <%= f.label :last_name %><br />
+      <%= f.text_field :last_name %>
+    </p>
+    <p>
+      <%= f.label :address %><br />
+      <%= f.text_field :address %>
+    </p>
+    <p>
+      <%= f.submit 'Save' %>
+    </p>
+<% end %>

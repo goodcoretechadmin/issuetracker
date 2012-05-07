@@ -1,0 +1,33 @@
+<h1>Listing issues</h1>
+
+<table>
+  <tr>
+    <th width="200px">Client</th>
+    <th width="70px">Type</th>
+    <th width="200px">Doctor</th>
+    <th width="200px">Description</th>
+    <th width="70px">Substantiated</th>
+    <th width="50px">Status</th>
+    <th width="200px">Resolution</th>
+  </tr>
+
+<% @issues.each do |issue| %>
+  <tr>
+    <td><%=h issue.client.name %></td>
+    <td><%=h issue.issue_type %></td>
+    <td><%=h issue.doctor.name unless issue.doctor.nil? %></td>
+    <td><%=h issue.description %></td>
+    <td><%=h issue.substantiated %></td>
+    <td><%=h issue.status %></td>
+    <td><%=h issue.resolution %></td>
+    <td><%= link_to 'Show', issue %></td>
+    <td><%= link_to 'Edit', edit_issue_path(issue) %></td>
+    <td><%= link_to 'Destroy', issue, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New issue', new_issue_path %> |
+<%= link_to 'Home', "/" %>

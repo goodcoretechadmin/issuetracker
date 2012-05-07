@@ -1,0 +1,46 @@
+<style type="text/css">
+  th {text-align: left;}
+</style>
+<h1>Issue Tracker</h1>
+<h3>Browse</h3>
+<%= link_to 'Clients', clients_path %> |
+<%= link_to 'Doctors', doctors_path %> |
+<%= link_to 'Issues', issues_path %>
+<h3>Search for issues</h3>
+<% form_tag "/home/search" do %>
+    <p>
+      <%= label_tag :client %>
+      <%= text_field_tag :client, @client %>
+      <%= label_tag :doctor %>
+      <%= text_field_tag :doctor, @doctor %>
+
+      <%= submit_tag 'Search' %>
+    </p>
+<% end %>
+
+<% if !@issues.nil? && !@issues.empty? %>
+    <h4>Search Results</h4>
+
+    <table>
+      <tr>
+        <th width="60px">Issue #</th>
+        <th width="100px">Client</th>
+        <th width="100px">Doctor</th>
+        <th width="300px">Description</th>
+        <th width="100px">Status</th>
+      </tr>
+
+      <% @issues.each do |issue| %>
+          <tr>
+            <td><%=h issue.id %></td>
+            <td><%=h issue.client.name %></td>
+            <td><%=h issue.doctor.name %></td>
+            <td><%=h issue.description %></td>
+            <td><%=h issue.status %></td>
+          </tr>
+      <% end %>
+    </table>
+<% elsif  !@issues.nil? %>
+    <h4>Search Results</h4>
+    <p>No search result found</p>
+<% end %>

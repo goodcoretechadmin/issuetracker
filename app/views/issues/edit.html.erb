@@ -1,0 +1,40 @@
+<h1>Editing issue</h1>
+
+<% form_for(@issue) do |f| %>
+    <%= f.error_messages %>
+
+    <p>
+      <%= f.label :client %><br/>
+      <%= @issue.client.name %>
+    </p>
+    <p>
+      <%= f.label :issue_type %><br/>
+      <%= @issue.issue_type %>
+    </p>
+    <p>
+      <%= f.label :doctor %><br/>
+      <%= @issue.doctor.name unless @issue.doctor.nil? %>
+    </p>
+    <p>
+      <%= f.label :description %><br/>
+      <%= f.text_area :description, {:rows => 4} %>
+    </p>
+    <p>
+      <%= f.label :substantiated %><br/>
+      <%= f.check_box :substantiated %>
+    </p>
+    <p>
+      <%= f.label :status %><br/>
+      <%= f.select :type, %w[new open closed], {:prompt => true, :selected => @issue.status}, {} %>
+    </p>
+    <p>
+      <%= f.label :resolution %><br/>
+      <%= f.text_area :resolution, {:rows => 4} %>
+    </p>
+    <p>
+      <%= f.submit 'Update' %>
+    </p>
+<% end %>
+
+<%= link_to 'Show', @issue %> |
+<%= link_to 'Back', issues_path %>

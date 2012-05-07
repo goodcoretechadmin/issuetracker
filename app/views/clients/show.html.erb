@@ -1,0 +1,14 @@
+<p>
+  <b>Name:</b>
+  <%=h @client.name %>
+</p>
+
+<p>
+  <b>Address:</b>
+  <%=h @client.address %>
+</p>
+
+
+<%= link_to 'Edit', edit_client_path(@client) %> |
+<%= link_to 'View Notes', polymorphic_url([@client, Note.new]) %> |
+<%= link_to 'Back', clients_path %>
